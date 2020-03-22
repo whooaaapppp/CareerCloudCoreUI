@@ -23,6 +23,11 @@ namespace CareerCloud.EntityFrameworkDataAccess
             base.OnConfiguring(optionsBuilder);
         }
 
+        public CareerCloudContext(DbContextOptions<CareerCloudContext> options) : base(options)
+        {
+
+        }
+
         //EF6 uses DbModelBuilder while EFCore uses ModelBuilder https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.onmodelcreating?view=efcore-3.1
         #region OnModelCreating Model Builder
         protected override void OnModelCreating(ModelBuilder modelBuilder)
