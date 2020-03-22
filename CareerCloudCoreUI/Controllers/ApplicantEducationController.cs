@@ -20,9 +20,13 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: ApplicantEducation
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.ApplicantEducations.Include(a => a.ApplicantProfiles);
+            //should point to specific ID not as a list
+
+
+            //var careerCloudContext = _context.ApplicantEducations.Include(a => a.ApplicantProfiles);
+            var careerCloudContext = _context.ApplicantEducations.Include(a => a.ApplicantProfiles).Where(a => a.Applicant == Id);
             return View(await careerCloudContext.ToListAsync());
         }
 
