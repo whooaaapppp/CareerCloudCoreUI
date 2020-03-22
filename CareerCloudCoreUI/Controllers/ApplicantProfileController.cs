@@ -37,6 +37,13 @@ namespace CareerCloudCoreUI.Controllers
             var applicantProfilePoco = await _context.ApplicantProfiles
                 .Include(a => a.SecurityLogins)
                 .Include(a => a.SystemCountryCodes)
+                .Include(a => a.ApplicantEducations)
+                .Include(a => a.ApplicantResumes)
+                .Include(a => a.ApplicantJobApplications)
+                .Include(a => a.ApplicantWorkHistory)
+                .Include(a => a.ApplicantSkills)
+
+
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (applicantProfilePoco == null)
             {

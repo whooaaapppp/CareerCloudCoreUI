@@ -1,7 +1,7 @@
-﻿@model IEnumerable<CareerCloud.Pocos.ApplicantProfilePoco>
+﻿@model IEnumerable<CareerCloud.Pocos.ApplicantWorkHistoryPoco>
 
 @{
-    ViewData["Title"] = "Applicant Profile";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
@@ -13,25 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Currency)
+                @Html.DisplayNameFor(model => model.CompanyName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CurrentSalary)
+                @Html.DisplayNameFor(model => model.Location)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CurrentRate)
+                @Html.DisplayNameFor(model => model.JobTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Province)
+                @Html.DisplayNameFor(model => model.JobDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Street)
+                @Html.DisplayNameFor(model => model.StartMonth)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.City)
+                @Html.DisplayNameFor(model => model.StartYear)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostalCode)
+                @Html.DisplayNameFor(model => model.EndMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndYear)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TimeStamp)
@@ -40,7 +43,7 @@
                 @Html.DisplayNameFor(model => model.SystemCountryCodes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SecurityLogins)
+                @Html.DisplayNameFor(model => model.ApplicantProfiles)
             </th>
             <th></th>
         </tr>
@@ -49,25 +52,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Currency)
+                @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CurrentSalary)
+                @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CurrentRate)
+                @Html.DisplayFor(modelItem => item.JobTitle)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Province)
+                @Html.DisplayFor(modelItem => item.JobDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Street)
+                @Html.DisplayFor(modelItem => item.StartMonth)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.City)
+                @Html.DisplayFor(modelItem => item.StartYear)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PostalCode)
+                @Html.DisplayFor(modelItem => item.EndMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndYear)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TimeStamp)
@@ -76,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.SystemCountryCodes.Code)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SecurityLogins.Id)
+                @Html.DisplayFor(modelItem => item.ApplicantProfiles.Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
