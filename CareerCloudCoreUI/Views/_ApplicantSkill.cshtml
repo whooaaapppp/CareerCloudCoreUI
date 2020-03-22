@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<CareerCloud.Pocos.ApplicantSkillPoco>
+
+@{
+    ViewData["Title"] = "Applicant Skills";
+}
+
+<h2>Applicant Skills</h2>
+
+<p>
+    <a asp-controller="ApplicantSkill" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Skill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndYear)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantProfiles)
+            </th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkillLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndMonth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndYear)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicantProfiles.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

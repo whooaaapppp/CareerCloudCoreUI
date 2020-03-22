@@ -20,9 +20,9 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: ApplicantSkill
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.ApplicantSkills.Include(a => a.ApplicantProfiles);
+            var careerCloudContext = _context.ApplicantSkills.Include(a => a.ApplicantProfiles).Where(a => a.Applicant == Id); 
             return View(await careerCloudContext.ToListAsync());
         }
 
@@ -145,7 +145,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: ApplicantSkill/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var applicantSkillPoco = await _context.ApplicantSkills.FindAsync(id);
             _context.ApplicantSkills.Remove(applicantSkillPoco);
@@ -153,7 +153,7 @@ namespace CareerCloudCoreUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ApplicantSkillPocoExists(Guid id)
+        private bool ApplicantSkillPocoExists(Guid? id)
         {
             return _context.ApplicantSkills.Any(e => e.Id == id);
         }

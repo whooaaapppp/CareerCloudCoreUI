@@ -1,15 +1,18 @@
-﻿@model IEnumerable<CareerCloud.Pocos.ApplicantResumePoco>
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<CareerCloud.Pocos.ApplicantResumePoco>
 
 @{
     ViewData["Title"] = "Applicant Resume";
 
 }
 
-
 <h2>Applicant Resume</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller ="ApplicantResume" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -23,7 +26,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ApplicantProfiles)
             </th>
-            <th></th>
+            <th>Options</th>
         </tr>
     </thead>
     <tbody>
