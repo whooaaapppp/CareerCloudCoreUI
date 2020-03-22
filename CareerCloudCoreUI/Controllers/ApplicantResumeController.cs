@@ -20,9 +20,9 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: ApplicantResumePocoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.ApplicantResumes.Include(a => a.ApplicantProfiles);
+            var careerCloudContext = _context.ApplicantResumes.Include(a => a.ApplicantProfiles).Where(a => a.Applicant == Id);
             return View(await careerCloudContext.ToListAsync());
         }
 
@@ -145,7 +145,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: ApplicantResumePocoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var applicantResumePoco = await _context.ApplicantResumes.FindAsync(id);
             _context.ApplicantResumes.Remove(applicantResumePoco);
@@ -153,7 +153,7 @@ namespace CareerCloudCoreUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ApplicantResumePocoExists(Guid id)
+        private bool ApplicantResumePocoExists(Guid? id)
         {
             return _context.ApplicantResumes.Any(e => e.Id == id);
         }
