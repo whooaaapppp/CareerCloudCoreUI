@@ -20,9 +20,9 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: CompanyLocation
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.CompanyLocations.Include(c => c.CompanyProfiles);
+            var careerCloudContext = _context.CompanyLocations.Include(c => c.CompanyProfiles).Where(c=>c.CompanyProfiles.Id == Id);
             return View(await careerCloudContext.ToListAsync());
         }
 
@@ -145,7 +145,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: CompanyLocation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var companyLocationPoco = await _context.CompanyLocations.FindAsync(id);
             _context.CompanyLocations.Remove(companyLocationPoco);
@@ -153,7 +153,7 @@ namespace CareerCloudCoreUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompanyLocationPocoExists(Guid id)
+        private bool CompanyLocationPocoExists(Guid? id)
         {
             return _context.CompanyLocations.Any(e => e.Id == id);
         }

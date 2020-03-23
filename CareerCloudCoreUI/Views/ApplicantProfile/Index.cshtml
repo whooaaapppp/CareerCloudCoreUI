@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<CareerCloud.Pocos.ApplicantProfilePoco>
 
 @{
-    ViewData["Title"] = "Applicant Profile";
+    ViewData["Title"] = "Applicant Profiles";
 }
 
-<h2>Applicant Profile</h2>
+<h2>Applicant Profiles</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -38,7 +38,7 @@
                 Options
             </th>
             <th>
-                Details
+                Applicant Details
             </th>
             
         </tr>
@@ -67,15 +67,15 @@
             </td>
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <br />
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> <br />
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
             <td>
-                <a asp-controller="ApplicantJobApplication" asp-action="Index" asp-route-id="@item.Id">Job Application</a> |
-                <a asp-controller="ApplicantWorkHistory" asp-action="Index" asp-route-id="@item.Id">Work History</a> |
-                <a asp-controller="ApplicantResume" asp-action="Index" asp-route-id="@item.Id">Resume</a> |
-                <a asp-controller="ApplicantSkills" asp-action="Index" asp-route-id="@item.Id">Skills</a> |
+                <a asp-controller="ApplicantJobApplication" asp-action="Index" asp-route-id="@item.Id">Job Application</a> <br />
+                <a asp-controller="ApplicantWorkHistory" asp-action="Index" asp-route-id="@item.Id">Work History</a> <br />|
+                <a asp-controller="ApplicantResume" asp-action="Index" asp-route-id="@item.Id">Resume</a> <br />
+                <a asp-controller="ApplicantSkills" asp-action="Index" asp-route-id="@item.Id">Skills</a> <br />
                 <a asp-controller="ApplicantEducation" asp-action="Index" asp-route-id="@item.Id">Education</a>
             </td>
         </tr>
