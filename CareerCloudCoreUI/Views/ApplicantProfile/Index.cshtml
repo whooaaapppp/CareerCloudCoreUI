@@ -13,25 +13,32 @@
     <thead>
         <tr>
             <th>
-                Security Login
+                Full Name
             </th>
 
-            <th>Salary | Rate
-                @* 
-                @Html.DisplayNameFor(model => model.CurrentSalary)
-                @Html.DisplayNameFor(model => model.CurrentRate)
+            @*<th>
+            Security Login
+            </th>*@
+
+
+            <th>
+                Salary | Rate
+                @*
+            @Html.DisplayNameFor(model => model.CurrentSalary)
+            @Html.DisplayNameFor(model => model.CurrentRate)
                 *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Currency)
             </th>
-                       
-            <th> Address
+
+            <th>
+                Address
                 @* @Html.DisplayNameFor(model => model.Street)
-                @Html.DisplayNameFor(model => model.City)
-                @Html.DisplayNameFor(model => model.Province)
-                @Html.DisplayNameFor(model => model.PostalCode)
-                @Html.DisplayNameFor(model => model.SystemCountryCodes) *@
+            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.Province)
+            @Html.DisplayNameFor(model => model.PostalCode)
+            @Html.DisplayNameFor(model => model.SystemCountryCodes) *@
             </th>
 
             <th>
@@ -40,15 +47,22 @@
             <th>
                 Applicant Details
             </th>
-            
+
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SecurityLogins.Id)
+                @Html.DisplayFor(modelItem => item.SecurityLogins.FullName)
             </td>
+
+            @*
+                <td>
+                @Html.DisplayFor(modelItem => item.SecurityLogins.Id)
+                </td>
+            *@
+            
             <td>
                 @Html.DisplayFor(modelItem => item.CurrentSalary) | @Html.DisplayFor(modelItem => item.CurrentRate)
 
@@ -57,7 +71,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Currency)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.Street)<br />
                 @Html.DisplayFor(modelItem => item.City)
@@ -73,7 +87,7 @@
             </td>
             <td>
                 <a asp-controller="ApplicantJobApplication" asp-action="Index" asp-route-id="@item.Id">Job Application</a> <br />
-                <a asp-controller="ApplicantWorkHistory" asp-action="Index" asp-route-id="@item.Id">Work History</a> <br />|
+                <a asp-controller="ApplicantWorkHistory" asp-action="Index" asp-route-id="@item.Id">Work History</a> <br />
                 <a asp-controller="ApplicantResume" asp-action="Index" asp-route-id="@item.Id">Resume</a> <br />
                 <a asp-controller="ApplicantSkill" asp-action="Index" asp-route-id="@item.Id">Skills</a> <br />
                 <a asp-controller="ApplicantEducation" asp-action="Index" asp-route-id="@item.Id">Education</a>
