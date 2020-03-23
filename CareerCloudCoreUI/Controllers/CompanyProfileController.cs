@@ -138,7 +138,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: CompanyProfile/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var companyProfilePoco = await _context.CompanyProfiles.FindAsync(id);
             _context.CompanyProfiles.Remove(companyProfilePoco);
@@ -146,7 +146,7 @@ namespace CareerCloudCoreUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompanyProfilePocoExists(Guid id)
+        private bool CompanyProfilePocoExists(Guid? id)
         {
             return _context.CompanyProfiles.Any(e => e.Id == id);
         }

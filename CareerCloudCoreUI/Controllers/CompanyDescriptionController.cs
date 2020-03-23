@@ -20,9 +20,9 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: CompanyDescription
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.CompanyDescriptions.Include(c => c.CompanyProfiles).Include(c => c.SystemLanguageCodes);
+            var careerCloudContext = _context.CompanyDescriptions.Where(a => a.Company == Id);
             return View(await careerCloudContext.ToListAsync());
         }
 
@@ -151,7 +151,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: CompanyDescription/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var companyDescriptionPoco = await _context.CompanyDescriptions.FindAsync(id);
             _context.CompanyDescriptions.Remove(companyDescriptionPoco);

@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<CareerCloud.Pocos.CompanyJobPoco>
+
+@{
+    ViewData["Title"] = "Company Job";
+}
+
+<h2>Company Job</h2>
+
+<p>
+    <a asp-controller="CompanyJob" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfileCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsInactive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsCompanyHidden)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyProfiles)
+            </th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsInactive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsCompanyHidden)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyProfiles.Id)
+                </td>
+                <td>
+                    <a asp-controller="CompanyJob" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-controller="CompanyJob" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-controller="CompanyJob" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

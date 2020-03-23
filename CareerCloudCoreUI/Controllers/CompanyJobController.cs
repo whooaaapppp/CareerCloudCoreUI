@@ -20,9 +20,9 @@ namespace CareerCloudCoreUI.Controllers
         }
 
         // GET: CompanyJob
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? Id)
         {
-            var careerCloudContext = _context.CompanyJobs.Include(c => c.CompanyProfiles);
+            var careerCloudContext = _context.CompanyJobs.Where(a => a.Company == Id);
             return View(await careerCloudContext.ToListAsync());
         }
 
@@ -133,6 +133,7 @@ namespace CareerCloudCoreUI.Controllers
 
             var companyJobPoco = await _context.CompanyJobs
                 .Include(c => c.CompanyProfiles)
+
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (companyJobPoco == null)
             {
@@ -145,7 +146,7 @@ namespace CareerCloudCoreUI.Controllers
         // POST: CompanyJob/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var companyJobPoco = await _context.CompanyJobs.FindAsync(id);
             _context.CompanyJobs.Remove(companyJobPoco);
@@ -153,7 +154,7 @@ namespace CareerCloudCoreUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompanyJobPocoExists(Guid id)
+        private bool CompanyJobPocoExists(Guid? id)
         {
             return _context.CompanyJobs.Any(e => e.Id == id);
         }

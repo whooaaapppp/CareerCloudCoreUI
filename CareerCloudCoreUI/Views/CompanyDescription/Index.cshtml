@@ -1,59 +1,11 @@
 ﻿@model IEnumerable<CareerCloud.Pocos.CompanyDescriptionPoco>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Company Description";
 }
 
-<h1>Index</h1>
+@* linking to Applicant Education Index as Partial View *@
+<div>
+    <partial name="~/Views/_CompanyDescription.cshtml" model="@Model.ToList()" />
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyProfiles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SystemLanguageCodes)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyProfiles.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SystemLanguageCodes.LanguageID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
