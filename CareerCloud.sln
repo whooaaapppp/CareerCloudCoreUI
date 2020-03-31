@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.Pocos", "Career
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.DataAccessLayer", "CareerCloud.DataAccessLayer\CareerCloud.DataAccessLayer.csproj", "{209BAC18-5693-4A52-B060-5C4628DAA1CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.ADODataAccessLayer", "CareerCloud.ADODataAccessLayer\CareerCloud.ADODataAccessLayer.csproj", "{4BB55257-9C04-4F4B-9FD3-AFCC84500F01}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.BusinessLogicLayer", "CareerCloud.BusinessLogicLayer\CareerCloud.BusinessLogicLayer.csproj", "{541AF096-5CCA-48D5-9A2D-A326677B88EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.EntityFrameworkDataAccess", "CareerCloud.EntityFrameworkDataAccess\CareerCloud.EntityFrameworkDataAccess.csproj", "{BD64D14B-3888-4038-9514-61BC56AE4534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCloudCoreUI", "CareerCloudCoreUI\CareerCloudCoreUI.csproj", "{2A1D2853-4063-42BB-8315-6D8D257566AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCoreUI", "CareerCloudCoreUI\CareerCloudCoreUI.csproj", "{2A1D2853-4063-42BB-8315-6D8D257566AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{209BAC18-5693-4A52-B060-5C4628DAA1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209BAC18-5693-4A52-B060-5C4628DAA1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209BAC18-5693-4A52-B060-5C4628DAA1CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BB55257-9C04-4F4B-9FD3-AFCC84500F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BB55257-9C04-4F4B-9FD3-AFCC84500F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BB55257-9C04-4F4B-9FD3-AFCC84500F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BB55257-9C04-4F4B-9FD3-AFCC84500F01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{541AF096-5CCA-48D5-9A2D-A326677B88EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{541AF096-5CCA-48D5-9A2D-A326677B88EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{541AF096-5CCA-48D5-9A2D-A326677B88EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
